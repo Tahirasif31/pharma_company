@@ -21,7 +21,8 @@ export function BackgroundGradientDemo() {
         <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
           Unlock better health and savings today - book our products now and
           experience quality pharmaceuticals at affordable prices! Your
-          well-being deserves the best, so don't wait, secure your order now.
+          well-being deserves the best, so don&apos;t wait, secure your order
+          now.
         </p>
         <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
           <a href="https://chatwith.io/s/al-baraq-facilitator">

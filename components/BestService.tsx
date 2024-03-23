@@ -25,10 +25,10 @@ function BestService() {
           each item is crafted with your health and satisfaction in mind.
         </p>
         <p className="mt-2 hidden md:block">
-          Whether you're in search of trusted pain management options,
-          revitalizing vitamins, or innovative wellness products, we've got you
-          covered. Every item in our inventory is designed to prioritize your
-          health and well-being while remaining accessible to all. Take
+          Whether you&apos;re in search of trusted pain management options,
+          revitalizing vitamins, or innovative wellness products, we&apos;ve got
+          you covered. Every item in our inventory is designed to prioritize
+          your health and well-being while remaining accessible to all. Take
           advantage of our commitment to value-driven healthcare and explore our
           extensive range today. From trusted pain relief options to
           cutting&mdash;edge wellness solutions, we&apos;ve handpicked each
