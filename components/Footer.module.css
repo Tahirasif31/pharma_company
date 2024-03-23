@@ -1,0 +1,147 @@
+.footer {
+  font-family: Poppins;
+  width: 100%;
+  font-size: 24px;
+  justify-content: center;
+  color: #fff;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 58px;
+}
+
+.join {
+  padding: 34px 34px 0 34px;
+}
+
+.contactContainer {
+  background-color: #fcd980;
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  margin: 38px 24px 0 24px;
+  gap: 38px;
+  color: black;
+  padding: 18px 0 18px 38px;
+}
+.logo {
+  /* color: #bbbbcb; */
+  color: #fff;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 175% */
+  margin-top: 18px;
+}
+.description {
+  font-size: 16px;
+  margin-top: 14px;
+  color: #f4f6fc;
+}
+
+.info {
+  font-size: 18px;
+  font-family: Poppins;
+  font-weight: 500;
+}
+
+.address {
+  font-size: 16px;
+  color: #282938;
+}
+
+.submitTitle {
+  font-size: 34px;
+  font-weight: 600;
+}
+.submitDescription {
+  font-size: 16px;
+  color: #f4f6fc;
+  margin-top: 12px;
+}
+.icons {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+.footerBottomContainer {
+  background-color: #fff;
+  font-size: 16px;
+}
+.footerBottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1370px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #282938;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+}
+.link {
+  text-decoration: none;
+  color: #0f0f0f;
+}
+.link.active {
+  color: #f1e9e9;
+}
+@media screen and (max-width: 880px) {
+  .contactContainer {
+    gap: 18px;
+    color: black;
+    padding: 18px 0 8px 18px;
+  }
+  .container {
+    gap: 18px;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 780px) {
+  /* .container {
+        grid-template-columns: 1fr;
+    } */
+
+  .contactContainer {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 590px) {
+  .contactContainer {
+    flex-direction: row;
+  }
+  .join {
+    padding: 24px;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .submit {
+    padding: 24px;
+  }
+  .footerBottom {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .copyright {
+    grid-row: 2;
+    justify-self: center;
+  }
+  .footerLinks {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 490px) {
+  .contactContainer {
+    flex-direction: column;
+  }
+}
