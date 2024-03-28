@@ -12,6 +12,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@react-three/drei": "^9.102.3",
     "@react-three/fiber": "^8.15.19",
+    "@supabase/supabase-js": "^2.41.1",
     "@tabler/icons-react": "^2.47.0",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",

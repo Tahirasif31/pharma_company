@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/utils/cn";
+import { supabase } from "./../app/supabase";
+import styles from "./GetQuote.module.css";
 import {
   IconBrandGithub,
   IconBrandGoogle,
@@ -10,10 +12,48 @@ import {
 } from "@tabler/icons-react";
 
 export function GetQuote() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [desc, setDesc] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [phoneError, setPhoneError] = useState(false);
+  const [groupError, setGroupError] = useState(false);
+  const [linkError, setLinkError] = useState(false);
+  const [message, setMessage] = useState("");
+  const [submited, setSubmited] = useState(false);
+  async function handleSubmit(
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> {
     e.preventDefault();
-    console.log("Form submitted");
-  };
+
+    if (firstName.length < 3) {
+      setMessage("Enter Correct Name");
+      setNameError(true);
+      return;
+    } else if (phone.length < 8) {
+      setMessage("Enter valid Phone Number");
+      setPhoneError(true);
+      return;
+    } else {
+      const { data, error } = await supabase
+        .from("queries")
+        .insert([{ firstName, lastName, email, phone, desc }])
+        .select();
+      setNameError(false);
+      setPhoneError(false);
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setDesc("");
+      setMessage("Login succeeded"); // Fixed typo in "succedd"
+      setSubmited(true);
+    }
+    console.log(message); // It's better to use `console.log` inside the `else` block if you want to log the updated value.
+  }
+
   return (
     <div className="max-w-md w-full mx-auto rounded-lg md:rounded-2xl p-4 md:p-8 shadow-input bg-black border border-[#FFFFFF]/[0.16]">
       <h2 className="font-bold text-xl text-neutral-200">Submit Your Query</h2>
@@ -26,20 +66,44 @@ export function GetQuote() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input
+              id="firstname"
+              placeholder="Tyler"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input
+              id="lastname"
+              placeholder="Durden"
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            id="email"
+            placeholder="projectmayhem@fc.com"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="phone">Phone Number</Label>
-          <Input id="phone" placeholder="+92 33 564412" type="phone" />
+          <Input
+            id="phone"
+            placeholder="+92 33 564412"
+            type="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="message">Message</Label>
@@ -48,6 +112,8 @@ export function GetQuote() {
             placeholder="your message"
             type="text"
             className="h-[150px]"
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
           />
         </LabelInputContainer>
 
