@@ -17,10 +17,6 @@ export function GetQuote() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [desc, setDesc] = useState("");
-  const [nameError, setNameError] = useState(false);
-  const [phoneError, setPhoneError] = useState(false);
-  const [groupError, setGroupError] = useState(false);
-  const [linkError, setLinkError] = useState(false);
   const [message, setMessage] = useState("");
   const [submited, setSubmited] = useState(false);
   async function handleSubmit(
@@ -30,25 +26,27 @@ export function GetQuote() {
 
     if (firstName.length < 3) {
       setMessage("Enter Correct Name");
-      setNameError(true);
+      return;
+    } else if (email.length < 5) {
+      setMessage("Enter valid Email");
       return;
     } else if (phone.length < 8) {
       setMessage("Enter valid Phone Number");
-      setPhoneError(true);
+      return;
+    } else if (desc.length < 8) {
+      setMessage("Enter your message");
       return;
     } else {
       const { data, error } = await supabase
         .from("queries")
         .insert([{ firstName, lastName, email, phone, desc }])
         .select();
-      setNameError(false);
-      setPhoneError(false);
       setFirstName("");
       setLastName("");
       setEmail("");
       setPhone("");
       setDesc("");
-      setMessage("Login succeeded"); // Fixed typo in "succedd"
+      setMessage("Your Message has been sent successfully"); // Fixed typo in "succedd"
       setSubmited(true);
     }
     console.log(message); // It's better to use `console.log` inside the `else` block if you want to log the updated value.
@@ -72,6 +70,7 @@ export function GetQuote() {
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              className="border border-red-500"
             />
           </LabelInputContainer>
           <LabelInputContainer>
@@ -116,7 +115,7 @@ export function GetQuote() {
             onChange={(e) => setDesc(e.target.value)}
           />
         </LabelInputContainer>
-
+        <p className="pb-2 text-r">{message}</p>
         <button
           className="bg-gradient-to-br relative group/btn from-black to-neutral-600 blockbg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
