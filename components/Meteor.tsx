@@ -28,7 +28,7 @@ export function Meteor({ title, description, image }: MeteorProps) {
           <p className="text-white mb-3 overflow-hidden overflow-ellipsis text-sm">
             {description}
           </p>
-          <Link href={"tel:+923362496268"}>
+          <Link href={"tel:+923212464402"}>
             <button className="flex gap-2 items-center border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
               Book Now
               <Image
