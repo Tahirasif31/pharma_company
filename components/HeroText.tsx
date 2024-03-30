@@ -37,7 +37,7 @@ export function HeroText() {
             />
           </button>
         </Link>
-        <Link href={"tel:+923362496268"}>
+        <Link href={"tel:+923212464402"}>
           <Button
             borderRadius="1.75rem"
             height={9}
