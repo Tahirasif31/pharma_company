@@ -20,7 +20,7 @@ function Footer() {
             </div>
             <div className={styles.phone}>
               <p className={styles.info}>Call us at</p>
-              <p className={styles.address}>+92 317 33 62620</p>
+              <p className={styles.address}>+92 336 2496268</p>
             </div>
           </div>
         </div>
