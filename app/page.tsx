@@ -9,12 +9,14 @@ import { LayoutGridDemo } from "@/components/LayoutGrid";
 import { GetQuote } from "@/components/GetQuote";
 import { SparklesPreview } from "@/components/Sparkles";
 import Products from "./../components/Products";
+import Loading from "./../components/Loading";
 
 const review = [{}];
 
 export default function Home() {
   return (
     <div>
+      <Loading />
       <Hero />
       <section id="about">
         <About />
